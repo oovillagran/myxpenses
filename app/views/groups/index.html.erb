@@ -1,0 +1,45 @@
+<div class="categories_page flex-column">
+  <header class="navbar">
+    <div class="page-navbar flex">
+      <span></span>
+      <h1 class="category-title">Categories</h1>
+      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "sign_out" %>
+    </div>
+  </header>
+
+  <main class="category-main">
+    <div class="categories_info">
+      <% if @groups.empty? %>
+        <p class="text">There are no categories yet.</p>
+      <% else %>
+        <% @groups.each do |group| %>
+          <% spendings_for_group = group.spendings %>
+          <%= button_to user_group_spendings_path(current_user, group), class: "category_btn groups_list flex" , method: :get do %>
+            <div class="group_field_icon flex">
+              <%= image_tag("icons/#{group.icon}", alt: "Icon") %>
+            </div>
+
+            <div class="group_field_name flex-column">
+              <p class="group_name"><%= group.name %></p>
+              <div class="field_delete flex">
+                <%= link_to "Delete", user_group_path(current_user, group), data: { turbo_method: :delete }, class: "btn-danger", confirm: 'Are you sure you want to delete this category?' %>
+              </div>
+            </div>
+            
+            <div class="group_field_price flex">
+              <% if spendings_for_group.any? %>
+                <%= number_to_currency(spendings_for_group.sum(&:amount), unit: "$ ") %>
+              <% else %>
+                $ 0.00
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  
+    <div class="add_new_btn">
+      <%= button_to 'Add New Category', new_user_group_path, method: :get, class: "btn-primary-add" %>
+    </div>
+  </main>
+</div>
