@@ -75,7 +75,7 @@ end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 # devise
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
 
 # cancancan
 gem 'cancancan'
