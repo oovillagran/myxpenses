@@ -79,3 +79,6 @@ gem "devise", "~> 4.9"
 
 # cancancan
 gem 'cancancan'
+
+# font awesome
+gem 'font-awesome-rails'
