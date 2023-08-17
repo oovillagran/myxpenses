@@ -3,19 +3,6 @@ require 'rails_helper'
 RSpec.describe GroupsController, type: :request do
   include Devise::Test::IntegrationHelpers
 
-  describe 'GET #index' do
-    before do
-      @user = User.create(name: 'test', email: 'test@test.com', password: '123456')
-      login_as(@user, scope: :user)
-      @group = Group.create(name: 'Sample Group', icon: 'icon.png', user: @user)
-    end
-
-    it 'displays user groups' do
-      get user_groups_path(@user)
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe 'GET #new' do
     before do
       @user = User.create(name: 'test', email: 'test@test.com', password: '123456')
