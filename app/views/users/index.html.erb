@@ -1,0 +1,11 @@
+<div class="main home flex-column">
+  <h1 class="app_title flex">My Xpenses</h1>
+  <div class="home-btn flex-column">
+    <% if user_signed_in? %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn-primary-signout" %>
+    <% else %>
+      <%= button_to "Log in", new_user_session_path, method: :get, class: "btn btn-primary-login" %>
+      <%= button_to "Sign Up", new_user_registration_path, method: :get, class: "btn btn-primary-register" %>
+    <% end %>
+  </div>
+</div>
