@@ -83,3 +83,6 @@ gem 'cancancan'
 
 # font awesome
 gem 'font-awesome-rails'
+
+# Assert_Template(rende_template) specs
+gem 'rails-controller-testing'
