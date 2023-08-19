@@ -1,0 +1,33 @@
+<div class="new_transaction flex-column">
+  <header class="navbar">
+    <div class="page-navbar flex">
+      <%= link_to user_group_spendings_path(@user, @group), class: "back-btn" do %>
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+      <% end %>
+
+      <h1 class="category-title">Add Transaction</h1>
+      <span></span>
+    </div>
+  </header>
+
+  <main class="category-main">
+    <div class="add_category_section">
+      <%= form_with(model: @spending, url: user_group_spendings_path(@user, @group), class: 'add-transaction-form') do |f| %>
+        <div class="field">
+          <hr class="hr">
+          <%= f.text_field :name, placeholder: "Transaction Name", class: "form-control input" %>
+        </div>
+  
+        <hr class="hr">
+        <div class="field">
+          <%= f.number_field :amount, step: '0.01', min: '0.01', value: sprintf('%.2f', @spending.amount), placeholder: 'Amount', class: "input" %>
+        </div>
+        <hr class="hr">
+  
+        <div class="action action_save add_new_btn">
+          <%= f.submit "Save", class: "save-btn btn-primary-add" %>
+        </div>
+      <% end %>
+    </div>
+  </main>
+</div>
