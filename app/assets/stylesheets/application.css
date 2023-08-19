@@ -229,7 +229,7 @@
 }
 
 .btn-danger {
-  font-size: 0.3rem;
+  font-size: 0.75rem;
   color: #e26522;
   text-decoration: none;
 }
@@ -247,11 +247,11 @@
   color: #fff;
   text-transform: uppercase;
   text-align: end;
-  font-size: 0.2rem;
+  font-size: 0.75rem;
 }
 
 .transactions_header_info_text {
-  font-size: 0.2rem;
+  font-size: 0.75rem;
 }
 
 .transaction_list {
