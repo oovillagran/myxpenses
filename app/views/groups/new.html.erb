@@ -1,0 +1,42 @@
+<div class="new_category flex-column">
+  <header class="navbar">
+    <div class="page-navbar flex">
+      <%= link_to user_groups_path(@user), class: "back-btn" do %>
+        <i class="fa fa-long-arrow-left"></i>
+      <% end %>
+      <h1 class="category-title">Add Category</h1>
+      <span></span>
+    </div>
+  </header>
+
+  <main class="category-main">
+    <div class="add_category_section">
+      <%= form_with(model: @group, url: user_groups_path(@user), class: 'add-category-form') do |f| %>
+        <div class="field">
+          <hr class="hr">
+          <%= f.text_field :name, placeholder: "Category Name", class: "input" %>
+        </div>
+  
+        <hr class="hr">
+        <div class="icon-selection">
+          <p class="select-icon-text">Select an Icon</p>
+          <div class="icon-list flex">
+            <% available_icons.each do |icon_name| %>
+              <div>
+                <%= radio_button_tag 'group[icon]', icon_name, @group.icon == icon_name %>
+                <%= label_tag "icon_#{icon_name}" do %>
+                  <%= image_tag("icons/#{icon_name}", alt: icon_name.humanize) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <hr class="hr">
+  
+        <div class="action action_save add_new_btn">
+          <%= f.submit "Save", class: "btn-primary-add" %>
+        </div>
+      <% end %>
+    </div>
+  </main>
+</div>

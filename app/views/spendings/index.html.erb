@@ -1,0 +1,46 @@
+<div class="transactions_page flex-column">
+  <header class="navbar">
+    <div class="page-navbar flex">
+      <%= link_to user_groups_path(current_user), class: "back-btn" do %>
+        <i class="fa fa-long-arrow-left"></i>
+      <% end %>
+      <h1 class="category-title flex">Transactions <%= @group.name %></h1>
+      <div class="transactions_header_info flex">
+        <% total_amount = @spendings.sum(:amount) %>
+        <p class="transactions_header_info_text">Total: <%= number_to_currency(total_amount, unit: " $") %></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="category-main">
+    <div class="categories_info">
+      <% if @spendings.empty? %>
+        <p class="text">There are no transactions yet.</p>
+      <% else %>
+        <% @spendings.each do |spending| %>
+          <div class="transaction_list flex groups_list">
+            <div class="transaction_info flex-column">
+              <p class="transaction_name"><%= spending.name %></p>
+              <div class="field_delete flex">
+                <%= link_to "Delete", user_group_spending_path(@user, @group, spending), data: { turbo_method: :delete }, confirm: "Are you sure?", class: "transaction_delete_btn btn-danger" %>
+              </div>
+            </div>
+
+            <div class="transaction_amount flex">
+              <p class="transaction_amount_text"><%= number_to_currency(spending.amount, unit: "$") %></p>
+            </div>
+
+            <div class="transaction_date flex">
+              <p class="transaction_date_text"><%= spending.created_at.strftime('%d-%b-%y') %></p>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  
+    <div class="new_transaction add_new_btn">
+      <%= button_to 'Add New Transaction', new_user_group_spending_path, method: :get, class: "new_transaction_btn btn-primary-add" %>
+    </div>
+  </main>
+</div>
