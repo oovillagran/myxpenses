@@ -29,6 +29,11 @@
 
 # 📖 MyXpenses app <a name="about-project"></a>
 
+<div>
+  <img src="./app/assets/images/Categories.png" alt="Categories">
+  <img src="./app/assets/images/Project4.png" alt="Categories">
+</div>
+
 **MyXpenses** is a RoR application about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what. 💰💸💹🤑🪙💴
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -60,7 +65,7 @@
 
 ## 🚀 Live Demo & preview <a name="live demo"></a>
 
-Here you can see a [Live Demo](https://rails-sf9c.onrender.com).
+Here you can see a [Live Demo](https://rails-hc3r.onrender.com).
 
 Here there is a [walkthrough](https://www.loom.com/share/afce9db4609b4eb1b44b7299cc74c1c8).
 
